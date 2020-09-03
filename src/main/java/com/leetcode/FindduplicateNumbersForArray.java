@@ -21,10 +21,10 @@ package com.leetcode;
 public class FindduplicateNumbersForArray {
 
 
-    public static boolean duplicate(int[] nums, int length, int[] duplication) {
-        if (nums == null || length <= 0)
+    public static boolean duplicate(int[] nums, int[] duplication) {
+        if (nums == null || nums.length <= 0)
             return false;
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             while (nums[i] != i) {
                 if (nums[i] == nums[nums[i]]) {
                     duplication[0] = nums[i];
@@ -38,11 +38,11 @@ public class FindduplicateNumbersForArray {
         return false;
     }
 
-    
+
     public static void main(String[] args) {
         int[] nums = {1,2,3,4,0,5,2};
         int[] duplication={0};
-        duplicate(nums,nums.length,duplication);
+        duplicate(nums,duplication);
         System.out.println("======"+duplication[0]);
     }
 
