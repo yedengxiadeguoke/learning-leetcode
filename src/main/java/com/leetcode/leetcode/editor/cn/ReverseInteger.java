@@ -1,5 +1,5 @@
 
-//给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。 
+//给出一个 32 位的整数，你需要将这个整数中每位上的数字进行反转。
 //
 // 示例 1: 
 //
@@ -28,23 +28,34 @@
 
 package com.leetcode.leetcode.editor.cn;
 
-public class ReverseInteger{
+public class ReverseInteger {
 
-public static void main(String[] args) {
-       Solution solution = new ReverseInteger().new Solution();
+    public static void main(String[] args) {
+        Solution solution = new ReverseInteger().new Solution();
+        System.out.println(solution.reverse(-1321));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+    class Solution {
 
-    public int reverse(int x) {
-
-       return 1;
-
-
-
+        public int reverse(int x) {
+            int rever = 0;
+            while (x != 0) {
+                int y = x % 10;
+                x /= 10;
+                //判断正数是否溢出
+                if (rever > Integer.MAX_VALUE / 10 || (rever == Integer.MAX_VALUE / 10 && y > 7)) {
+                    return 0;
+                }
+                //判断负数是否溢出
+                if (rever < Integer.MIN_VALUE / 10 || (rever == Integer.MAX_VALUE / 10 && y < -8)) {
+                    return 0;
+                }
+                rever =  rever*10+y;
+            }
+            return rever;
+        }
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
