@@ -69,19 +69,53 @@
 
 package com.leetcode.leetcode.editor.cn;
 
-public class RomanToInteger{
+public class RomanToInteger {
 
-public static void main(String[] args) {
-       Solution solution = new RomanToInteger().new Solution();
+    public static void main(String[] args) {
+        Solution solution = new RomanToInteger().new Solution();
+        System.out.println(solution.romanToInt("MCMXCIV"));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public int romanToInt(String s) {
+    class Solution {
+        public int romanToInt(String s) {
+            int totalNum = 0;
+            int lastNum = getValues(s.charAt(0));
+            for (int i = 1; i < s.length(); i++) {
+                int nowNum = getValues(s.charAt(i));
+                if (lastNum < nowNum) {
+                    totalNum -= lastNum;
+                } else {
+                    totalNum += lastNum;
+                }
+                lastNum = nowNum;
+            }
+            totalNum += lastNum;
+            return totalNum;
+        }
 
-        return 1;
+        private int getValues(char x) {
+            switch (x) {
+                case 'I':
+                    return 1;
+                case 'V':
+                    return 5;
+                case 'X':
+                    return 10;
+                case 'L':
+                    return 50;
+                case 'C':
+                    return 100;
+                case 'D':
+                    return 500;
+                case 'M':
+                    return 1000;
+                default:
+                    return 0;
+            }
+        }
+
     }
-}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

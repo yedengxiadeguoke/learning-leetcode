@@ -34,13 +34,13 @@ public class PalindromeNumber {
 
     public static void main(String[] args) {
         Solution solution = new PalindromeNumber().new Solution();
-        boolean s = solution.reverse(12345);
+        System.out.println(solution.isPalindrome(12345));
     }
 
-    //leetcode submit region begin(Prohibit modification and deletion)
+//leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
 
-        public boolean reverse(int x) {
+        public boolean isPalindrome(int x) {
 
             // 特殊情况：
             // 如上所述，当 x < 0 时，x 不是回文数。
