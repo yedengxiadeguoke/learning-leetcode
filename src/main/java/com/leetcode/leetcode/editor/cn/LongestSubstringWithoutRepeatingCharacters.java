@@ -35,7 +35,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     public static void main(String[] args) {
         Solution solution = new LongestSubstringWithoutRepeatingCharacters().new Solution();
-        int s = solution.lengthOfLongestSubstring("au");
+        int s = solution.lengthOfLongestSubstring("auuubyuf");
         System.out.println(s);
     }
 
