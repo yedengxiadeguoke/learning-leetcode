@@ -18,6 +18,9 @@
 
 package com.leetcode.leetcode.editor.cn;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSum {
 
     public static void main(String[] args) {
@@ -29,22 +32,33 @@ public class TwoSum {
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public int[] twoSum(int[] nums, int target) {
-
+        /*public int[] twoSum(int[] nums, int target) {
             int n = nums.length;
             for (int i = 0; i < n; ++i) {
                 for (int x = i+1; x < n; ++x) {
                     int y = nums[i]+nums[x];
                     if(y==target){
-                        int[] z = {i,x};
-                        return z;
+                        return new int[]{i,x} ;
                     }
                 }
             }
+            return new int[]{0};
+        }*/
 
 
-            return null;
+        public int[] twoSum(int[] nums, int target) {
+            Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
+            for (int i = 0; i < nums.length; ++i) {
+                if (hashtable.containsKey(target - nums[i])) {
+                    return new int[]{hashtable.get(target - nums[i]), i};
+                }
+                hashtable.put(nums[i], i);
+            }
+            return new int[0];
         }
+
+
+
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
